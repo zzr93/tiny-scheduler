@@ -179,10 +179,6 @@ func (sched *Scheduler) snapshotNodeInfo() ([]*NodeInfo, error) {
 		if nodeName == "" {
 			continue
 		}
-		//非活跃pod不占用资源
-		if pod.Status.Phase != v1.PodPending && pod.Status.Phase != v1.PodRunning {
-			continue
-		}
 
 		addPod(nodeName, podInfo)
 	}
